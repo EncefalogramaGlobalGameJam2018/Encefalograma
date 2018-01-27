@@ -34,21 +34,26 @@ public class PlayerController : MonoBehaviour {
 
         if (isPlayerBelowMinimumLimit())
         {
-            rb.velocity = Vector2.zero;
-       
+            stopMovement();
+
+        }
+        if (isPlayerAboxMaximumLimit())
+        {
+            stopMovement();
         }
 
 
     }
 
-
-
-    private bool isPlayerAboveMinimumLimit()
+    private void stopMovement()
     {
-        return transform.position.y > minimumLimit;
+        rb.velocity = Vector2.zero;
     }
 
-
+    private bool isPlayerAboxMaximumLimit()
+    {
+        return transform.position.y > maximumLimit;
+    }
 
     private bool isPlayerBelowMinimumLimit()
     {
