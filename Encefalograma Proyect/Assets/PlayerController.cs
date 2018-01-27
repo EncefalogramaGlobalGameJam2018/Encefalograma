@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
         if (isPlayerBelowMinimumLimit())
         {
             stopMovement();
+            bounceUpwards();
 
         }
         if (isPlayerAboveMaximumLimit())
@@ -38,6 +39,13 @@ public class PlayerController : MonoBehaviour {
         }
 
 
+    }
+
+    private void bounceUpwards()
+    {
+        Vector3 movement = new Vector3(0, upIncrement, 0);
+
+        rb.AddForce(movement);
     }
 
     private void stopMovement()
