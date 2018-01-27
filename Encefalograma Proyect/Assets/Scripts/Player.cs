@@ -49,13 +49,13 @@ public class Player : MonoBehaviour
         if (isHitDetected(ref hit))
         {
             distanceToNextLineDown = hit.distance;
-            Debug.Log(distanceToNextLineDown);
+            //Debug.Log(distanceToNextLineDown);
         }
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
         if (isHitDetected(ref hitUp))
         {
             distanceToNextLineUp = hitUp.distance;
-            Debug.Log(distanceToNextLineUp);
+            //Debug.Log(distanceToNextLineUp);
         }
 
 
