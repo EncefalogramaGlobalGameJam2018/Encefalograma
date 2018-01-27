@@ -95,8 +95,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955363168025456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.6, y: 2, z: 0}
-  m_LocalScale: {x: 15, y: 5, z: 0.1}
+  m_LocalPosition: {x: 13.519, y: 2.132, z: 0}
+  m_LocalScale: {x: 25.084623, y: 2.8496072, z: 0.1}
   m_Children:
   - {fileID: 4447652572908780}
   m_Father: {fileID: 4232141645525032}
@@ -201,7 +201,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions: []
   m_Parameters:
     serializedVersion: 2
