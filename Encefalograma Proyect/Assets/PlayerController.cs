@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,12 +29,30 @@ public class PlayerController : MonoBehaviour {
             {
                 move();
             }
+ 
+        }
 
-
+        if (isPlayerBelowMinimumLimit())
+        {
+            rb.velocity = Vector2.zero;
+       
         }
 
 
+    }
 
+
+
+    private bool isPlayerAboveMinimumLimit()
+    {
+        return transform.position.y > minimumLimit;
+    }
+
+
+
+    private bool isPlayerBelowMinimumLimit()
+    {
+        return transform.position.y < minimumLimit;
     }
 
     private static bool isSpacePressed()
