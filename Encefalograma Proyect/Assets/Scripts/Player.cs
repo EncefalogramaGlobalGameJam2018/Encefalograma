@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     [Range(1, 100)]
     public int maximumLimit;
     private Rigidbody2D rb;
-
+    private float distanceToNextLineDown;
+    private float distanceToNextLineUp;
 
 
     private void Start()
@@ -42,6 +43,18 @@ public class Player : MonoBehaviour
         {
             stopMovement();
             bounceDownwards();
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+        if (hit.collider != null)
+        {
+            distanceToNextLineDown = hit.distance;
+        }
+        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
+        if (hitUp.collider != null)
+        {
+            distanceToNextLineUp = hitUp.distance;
+            Debug.Log(distanceToNextLineUp);
         }
 
 
