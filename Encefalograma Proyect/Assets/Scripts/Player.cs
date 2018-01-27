@@ -51,11 +51,11 @@ public class Player : MonoBehaviour
         if (isHitDetected(ref hit))
         {
             distanceToNextLineDown = hit.distance;
-            if (distanceToNextLineDown < pointsRange)
+            if (isNextDownLineNear())
             {
-                currentPoints += 1/distanceToNextLineDown;
-                distanceToNextLineDown = 1000f;
-                Debug.Log("Abajo");
+                incrementPoints(distanceToNextLineDown);
+                distanceToNextLineDown = reset();
+                //Debug.Log("Abajo");
             }
             //Debug.Log(distanceToNextLineDown);
         }
@@ -63,17 +63,42 @@ public class Player : MonoBehaviour
         if (isHitDetected(ref hitUp))
         {
             distanceToNextLineUp = hitUp.distance;
-            if (distanceToNextLineUp < pointsRange)
+            if (isNextUpLineNear())
             {
-                currentPoints += 1/distanceToNextLineUp;
-                distanceToNextLineUp = 1000f;
-                Debug.Log("Arriba");
+                incrementPoints(distanceToNextLineUp);
+                distanceToNextLineUp = reset();
+                //Debug.Log("Arriba");
             }
             //Debug.Log(distanceToNextLineUp);
         }
 
         //Debug.Log("Puntos actuales: " + currentPoints);
 
+    }
+
+    private bool isNextUpLineNear()
+    {
+        return GetDistanceToNextLineUp() < pointsRange;
+    }
+
+    private float GetDistanceToNextLineUp()
+    {
+        return distanceToNextLineUp;
+    }
+
+    private bool isNextDownLineNear()
+    {
+        return distanceToNextLineDown < pointsRange;
+    }
+
+    private static float reset()
+    {
+        return 1000f;
+    }
+
+    private void incrementPoints(float distanceToNextLine)
+    {
+        currentPoints += 1 / distanceToNextLine;
     }
 
     private static Vector2 Vector2Down()
