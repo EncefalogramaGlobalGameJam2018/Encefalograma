@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float upIncrement = 1f;
+    [Range(-100,-1)]
     public int minimumLimit;
+    [Range(1, 100)]
     public int maximumLimit;
     private Rigidbody2D rb;
 
