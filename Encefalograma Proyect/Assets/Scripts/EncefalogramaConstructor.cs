@@ -14,11 +14,11 @@ public class EncefalogramaConstructor : MonoBehaviour {
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
 
-        lineRenderer.positionCount = points.Length;
-        lineRenderer.widthMultiplier = 0.1f;
+        set(lineRenderer);
 
         positions = new Vector3[points.Length];
 
+<<<<<<< HEAD
         posX = intervalo;
 
         float scale = (transform.lossyScale.y - 0.5f) / 2f;
@@ -26,6 +26,23 @@ public class EncefalogramaConstructor : MonoBehaviour {
         for (int i = 0; i < points.Length; i++)
         {
             float posY = points[i] * scale / 10;
+=======
+        fillPositionsWithPositionCalculatedFromPoints();
+
+        lineRenderer.SetPositions(positions);
+    }
+
+    private void set(LineRenderer lineRenderer)
+    {
+        lineRenderer.positionCount = points.Length;
+        lineRenderer.widthMultiplier = 0.1f;
+    }
+
+    private void fillPositionsWithPositionCalculatedFromPoints()
+    {
+        for (int i = 0; i < points.Length; i++)
+        {
+>>>>>>> 9581386a95d31e749d5c594d67f81d5a41f4db85
 
             Vector3 position = new Vector3(transform.position.x + posX, transform.position.y + posY, 0.0f);
 
@@ -33,12 +50,5 @@ public class EncefalogramaConstructor : MonoBehaviour {
 
             posX += intervalo;
         }
-
-        lineRenderer.SetPositions(positions);
-    }
-
-    void Update()
-    {
-
     }
 }
