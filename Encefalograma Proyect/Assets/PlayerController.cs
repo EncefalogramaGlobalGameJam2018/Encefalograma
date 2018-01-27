@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isSpacePressed())
         {
-                move();
+            move();
         }
 
         if (isPlayerBelowMinimumLimit())
@@ -36,9 +36,17 @@ public class PlayerController : MonoBehaviour {
         if (isPlayerAboveMaximumLimit())
         {
             stopMovement();
+            bounceDownwards();
         }
 
 
+    }
+
+    private void bounceDownwards()
+    {
+        Vector3 movement = new Vector3(0, -upIncrement, 0);
+
+        rb.AddForce(movement);
     }
 
     private void bounceUpwards()
