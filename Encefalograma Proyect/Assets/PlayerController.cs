@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float upSpeed = 1f;
+    public float upIncrement = 1f;
+    private Rigidbody2D rb;
 
-	
-	// Update is called once per frame
-	void Update () {
-        float translation = Input.GetAxis("Vertical") * upSpeed;
-        translation *= Time.deltaTime;
-        transform.Translate(0, translation, 0);
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
+
+    // Update is called once per frame
+    void Update () {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 movement = new Vector3(0, upIncrement, 0);
+
+            rb.AddForce(movement);
+
+        }
+        
+        
+        
     }
 }
