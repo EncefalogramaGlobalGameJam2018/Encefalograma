@@ -45,19 +45,30 @@ public class Player : MonoBehaviour
             bounceDownwards();
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (hit.collider != null)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2Down());
+        if (isHitDetected(ref hit))
         {
             distanceToNextLineDown = hit.distance;
+            Debug.Log(distanceToNextLineDown);
         }
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
-        if (hitUp.collider != null)
+        if (isHitDetected(ref hitUp))
         {
             distanceToNextLineUp = hitUp.distance;
             Debug.Log(distanceToNextLineUp);
         }
 
 
+    }
+
+    private static Vector2 Vector2Down()
+    {
+        return -Vector2.up;
+    }
+
+    private static bool isHitDetected(ref RaycastHit2D hit)
+    {
+        return hit.collider != null;
     }
 
     private void bounceDownwards()
