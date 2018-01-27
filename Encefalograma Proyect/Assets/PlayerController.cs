@@ -17,24 +17,39 @@ public class PlayerController : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isSpacePressed())
         {
-            if (transform.position.y < maximumLimit)
-                
-            {
-                Debug.Log("Y is: " + transform.position.y + "maximum: " + maximumLimit);
-                Vector3 movement = new Vector3(0, upIncrement, 0);
+            if (isPlayerBelowMaximumLimit())
 
-                rb.AddForce(movement);
+            {
+                move();
             }
 
-            
+
         }
-        
-        
-        
+
+
+
+    }
+
+    private static bool isSpacePressed()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
+    private void move()
+    {
+        Vector3 movement = new Vector3(0, upIncrement, 0);
+
+        rb.AddForce(movement);
+    }
+
+    private bool isPlayerBelowMaximumLimit()
+    {
+        return transform.position.y < maximumLimit;
     }
 }
