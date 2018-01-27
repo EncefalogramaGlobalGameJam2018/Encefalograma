@@ -51,28 +51,30 @@ public class Player : MonoBehaviour
         if (isHitDetected(ref hit))
         {
             distanceToNextLineDown = hit.distance;
+
             if (isNextDownLineNear())
             {
                 incrementPoints(distanceToNextLineDown);
                 distanceToNextLineDown = reset();
-                //Debug.Log("Abajo");
+
             }
-            //Debug.Log(distanceToNextLineDown);
+
         }
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
         if (isHitDetected(ref hitUp))
         {
             distanceToNextLineUp = hitUp.distance;
+
             if (isNextUpLineNear())
             {
                 incrementPoints(distanceToNextLineUp);
                 distanceToNextLineUp = reset();
-                //Debug.Log("Arriba");
+
             }
-            //Debug.Log(distanceToNextLineUp);
+
         }
 
-        //Debug.Log("Puntos actuales: " + currentPoints);
+
 
     }
 
