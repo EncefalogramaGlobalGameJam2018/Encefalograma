@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
             stopMovement();
 
         }
-        if (isPlayerAboxMaximumLimit())
+        if (isPlayerAboveMaximumLimit())
         {
             stopMovement();
         }
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = Vector2.zero;
     }
 
-    private bool isPlayerAboxMaximumLimit()
+    private bool isPlayerAboveMaximumLimit()
     {
         return transform.position.y > maximumLimit;
     }
