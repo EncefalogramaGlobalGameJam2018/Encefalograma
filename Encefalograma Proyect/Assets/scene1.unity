@@ -243,6 +243,16 @@ Prefab:
       propertyPath: upSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114351749641577240, guid: 00aa4142b01deb142b2961a5e3fb5e30,
+        type: 2}
+      propertyPath: minimumLimit
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114351749641577240, guid: 00aa4142b01deb142b2961a5e3fb5e30,
+        type: 2}
+      propertyPath: maximumLimit
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00aa4142b01deb142b2961a5e3fb5e30, type: 2}
   m_IsPrefabParent: 0

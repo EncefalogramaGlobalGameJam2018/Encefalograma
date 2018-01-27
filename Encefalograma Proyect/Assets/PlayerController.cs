@@ -24,12 +24,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isSpacePressed())
         {
-            if (isPlayerBelowMaximumLimit())
-
-            {
                 move();
-            }
- 
         }
 
         if (isPlayerBelowMinimumLimit())
@@ -72,8 +67,5 @@ public class PlayerController : MonoBehaviour {
         rb.AddForce(movement);
     }
 
-    private bool isPlayerBelowMaximumLimit()
-    {
-        return transform.position.y < maximumLimit;
-    }
+
 }
