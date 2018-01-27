@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     public int minimumLimit;
     [Range(1, 100)]
     public int maximumLimit;
+    public int pointsRange = 2;
     private Rigidbody2D rb;
     private float distanceToNextLineDown;
     private float distanceToNextLineUp;
+    private float currentPoints;
 
 
     private void Start()
@@ -49,15 +51,28 @@ public class Player : MonoBehaviour
         if (isHitDetected(ref hit))
         {
             distanceToNextLineDown = hit.distance;
-            Debug.Log(distanceToNextLineDown);
+            if (distanceToNextLineDown < pointsRange)
+            {
+                currentPoints += 1/distanceToNextLineDown;
+                distanceToNextLineDown = 1000f;
+                Debug.Log("Abajo");
+            }
+            //Debug.Log(distanceToNextLineDown);
         }
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
         if (isHitDetected(ref hitUp))
         {
             distanceToNextLineUp = hitUp.distance;
-            Debug.Log(distanceToNextLineUp);
+            if (distanceToNextLineUp < pointsRange)
+            {
+                currentPoints += 1/distanceToNextLineUp;
+                distanceToNextLineUp = 1000f;
+                Debug.Log("Arriba");
+            }
+            //Debug.Log(distanceToNextLineUp);
         }
 
+        //Debug.Log("Puntos actuales: " + currentPoints);
 
     }
 
