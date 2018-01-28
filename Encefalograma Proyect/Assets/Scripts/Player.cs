@@ -106,9 +106,9 @@ public class Player : MonoBehaviour
        
     }
 
-    public float getCurrentPoints()
+    public int getCurrentPoints()
     {
-        return currentPoints;
+        return (int)currentPoints;
     }
 
     public void setCeroPoints()
