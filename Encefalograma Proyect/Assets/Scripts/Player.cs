@@ -8,20 +8,25 @@ public class Player : MonoBehaviour
 
     public float upIncrement = 1f;
     [Range(-100, -1)]
-    public int minimumLimit;
+    public float minimumLimit;
     [Range(1, 100)]
-    public int maximumLimit;
+    public float maximumLimit;
+    public float limitThreshold = 0.0005f;
     public int pointsRange = 2;
     private Rigidbody2D rb;
     private float distanceToNextLineDown;
     private float distanceToNextLineUp;
     private float currentPoints;
+    private GameObject cubePanelYScale;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        cubePanelYScale = GameObject.FindWithTag("cubePanel");
+        //Debug.Log(cubePanelYScale);
+        //Debug.Log(cubePanelYScale.transform.lossyScale.y);
+        maximumLimit = cubePanelYScale.transform.lossyScale.y + limitThreshold;
     }
 
 
