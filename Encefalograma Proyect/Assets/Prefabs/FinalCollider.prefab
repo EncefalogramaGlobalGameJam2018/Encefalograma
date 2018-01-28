@@ -78,4 +78,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 114238095336575244, guid: 91780cc8dbce27144a67165798dcf73c, type: 2}
-  umbral: 5000
+  umbral: 40

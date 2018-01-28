@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DragonBones;
+using UnityEngine.SceneManagement;
 
 public class Final : MonoBehaviour {
 
@@ -35,5 +36,12 @@ public class Final : MonoBehaviour {
             //Animacion mal
             m_pepe_iddle_eye.GetComponent<UnityArmatureComponent>().animation.FadeIn("ojito",-1f,-1);
         }
+        Invoke("final", 3);
+    }
+
+    private void final()
+    {
+        m_player.setCeroPoints();
+        SceneManager.LoadScene(0);
     }
 }

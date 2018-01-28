@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EncefalogramaConstructor : MonoBehaviour {
 
-    private float[] points = {0f,-5f,7f,-4f,4f,-7f,5f,-10f,3f,-7f,5f,-3f,8f,1f,10f,-10f,2f,-8f,5f};
+    private float[] points = {0f,-5f,7f,-4f,4f,-7f,5f,-10f,3f,-7f,5f,-3f,8f,1f,10f,-10f,2f,-8f,5f,-9f, 0f,0f,0f,-10f,10f,-3f,8f,-1f};
 
     private Vector3[] positions;
     private Vector2[] edges;
-    private float intervalo = 0.5f;
+    private float intervalo = 1.3f;
     private float posX;
 
     public GameObject finalTrigger;

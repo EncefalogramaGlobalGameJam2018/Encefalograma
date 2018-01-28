@@ -111,6 +111,11 @@ public class Player : MonoBehaviour
         return currentPoints;
     }
 
+    public void setCeroPoints()
+    {
+        currentPoints=0;
+    }
+
     private bool isNextUpLineNear()
     {
         return GetDistanceToNextLineUp() < pointsRange;
@@ -133,7 +138,7 @@ public class Player : MonoBehaviour
 
     private void incrementPoints(float distanceToNextLine)
     {
-        currentPoints += 1 / distanceToNextLine;
+        currentPoints += distanceToNextLine;
     }
 
     private static Vector2 Vector2Down()
