@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
        
     }
 
-    public static float getCurrentPoints()
+    public float getCurrentPoints()
     {
         return currentPoints;
     }

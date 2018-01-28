@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 1257902816}
   - component: {fileID: 1257902818}
   - component: {fileID: 1257902817}
+  - component: {fileID: 1257902819}
   m_Layer: 0
   m_Name: Points
   m_TagString: Untagged
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -492,6 +493,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1257902815}
+--- !u!114 &1257902819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257902815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6607c6403c80135489f0198aacd8a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 1568601656}
+  points: {fileID: 1257902817}
 --- !u!4 &1283614352 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4889960717303634, guid: 63e71f5643cd4974ea11b745fdd9ecd9,
@@ -612,6 +626,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1568601656 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114238095336575244, guid: 91780cc8dbce27144a67165798dcf73c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1447289544}
+  m_Script: {fileID: 11500000, guid: 86f73d426f3535e4d8a405e5de279bd4, type: 3}
 --- !u!1 &1593813374
 GameObject:
   m_ObjectHideFlags: 0
