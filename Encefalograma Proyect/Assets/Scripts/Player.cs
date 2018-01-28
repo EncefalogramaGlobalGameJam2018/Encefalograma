@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
         //Debug.Log(cubePanelYScale.transform.lossyScale.y);
         maximumLimit = cubePanelYScale.transform.lossyScale.y + limitThreshold;
         minimumLimit = (cubePanelYScale.transform.lossyScale.y / 2) / 2;
+        Debug.Log(maximumLimit);
+        Debug.Log(minimumLimit);
+        
+
     }
 
 
