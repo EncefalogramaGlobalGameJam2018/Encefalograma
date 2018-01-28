@@ -6,11 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float upIncrement = 1f;
-    [Range(-100, -1)]
-    public float minimumLimit;
-    [Range(1, 100)]
-    public float maximumLimit;
+    public float upIncrement = 50f;
+    private float minimumLimit;
+    private float maximumLimit;
     public float limitThreshold = 0.0005f;
     public int pointsRange = 2;
     private Rigidbody2D rb;
@@ -27,6 +25,7 @@ public class Player : MonoBehaviour
         //Debug.Log(cubePanelYScale);
         //Debug.Log(cubePanelYScale.transform.lossyScale.y);
         maximumLimit = cubePanelYScale.transform.lossyScale.y + limitThreshold;
+        minimumLimit = (cubePanelYScale.transform.lossyScale.y / 2) / 2;
     }
 
 
