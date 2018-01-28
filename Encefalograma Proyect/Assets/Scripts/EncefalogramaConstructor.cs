@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EncefalogramaConstructor : MonoBehaviour {
 
-    private float[] points = {0f,-1f,7f,-4f,4f,-7f,5f,-10f,3f,-7f,5f,-3f,8f,1f,10f,-10f};
+    private float[] points = {0f,-5f,7f,-4f,4f,-7f,5f,-10f,3f,-7f,5f,-3f,8f,1f,10f,-10f,2f,-8f,5f};
+
     private Vector3[] positions;
     private Vector2[] edges;
-    private float intervalo = 1f;
+    private float intervalo = 0.5f;
     private float posX;
 
     public GameObject finalTrigger;
@@ -25,13 +26,13 @@ public class EncefalogramaConstructor : MonoBehaviour {
 
         posX = intervalo;
 
-        float scale = (transform.lossyScale.y - 0.5f) / 2f;
+        float scale = (transform.lossyScale.y - 0.4f) / 2f;
 
         for (int i = 0; i < points.Length; i++)
         {
             float posY = points[i] * scale / 10;
 
-            Vector3 position = new Vector3(transform.position.x + posX, transform.position.y + posY, 0.0f);
+            Vector3 position = new Vector3(transform.position.x + posX, transform.position.y + posY, lineRenderer.transform.position.z);
 
             Vector2 edge = transform.InverseTransformPoint(new Vector2(transform.position.x + posX, transform.position.y + posY));
 

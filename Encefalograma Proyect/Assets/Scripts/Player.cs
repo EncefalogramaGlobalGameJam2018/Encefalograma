@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float minimumLimit;
     private float maximumLimit;
     public float limitThreshold = 0.0005f;
-    public int pointsRange = 2;
+    public float pointsRange = 0.2f;
     private Rigidbody2D rb;
     private float distanceToNextLineDown;
     private float distanceToNextLineUp;
