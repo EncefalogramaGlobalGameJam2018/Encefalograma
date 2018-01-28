@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MoveManager : MonoBehaviour {
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
+    public float velocity;
 
     private void Start()
     {
@@ -14,6 +15,6 @@ public class MoveManager : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        rb.velocity = new Vector2(1f, rb.velocity.y);
+        rb.velocity = new Vector2(velocity, rb.velocity.y);
     }
 }
