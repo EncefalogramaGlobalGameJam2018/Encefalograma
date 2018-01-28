@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private float distanceToNextLineDown;
     private float distanceToNextLineUp;
-    private float currentPoints;
+    private static float currentPoints;
     private GameObject cubePanelYScale;
 
 
@@ -80,6 +80,11 @@ public class Player : MonoBehaviour
 
 
 
+    }
+
+    public static float getCurrentPoints()
+    {
+        return currentPoints;
     }
 
     private bool isNextUpLineNear()
