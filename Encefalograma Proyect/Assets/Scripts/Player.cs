@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
         //Debug.Log(cubePanelYScale.transform.lossyScale.y);
         maximumLimit = cubePanelYScale.transform.lossyScale.y + limitThreshold;
         minimumLimit = (cubePanelYScale.transform.lossyScale.y / 2) / 2;
-        Debug.Log(maximumLimit);
-        Debug.Log(minimumLimit);
+       // Debug.Log(maximumLimit);
+        //Debug.Log(minimumLimit);
         
 
     }
@@ -55,35 +55,55 @@ public class Player : MonoBehaviour
             bounceDownwards();
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2Down());
-        if (isHitDetected(ref hit))
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2Down());
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2Down());
+        foreach (var h in hit)
         {
-            distanceToNextLineDown = hit.distance;
-
-            if (isNextDownLineNear())
+           // Debug.Log("Fuera");
+            //Debug.Log(h.collider);
+            if ( h.collider.CompareTag("Player")) { continue; }
+            if (h.collider.CompareTag("Limit")) { continue; }
+            //Debug.Log("En medio");
+            if (h.collider is EdgeCollider2D)
             {
-                incrementPoints(distanceToNextLineDown);
-                distanceToNextLineDown = reset();
+                distanceToNextLineDown = h.distance;
+                //Debug.Log("Dentro");
+                if (isNextDownLineNear())
+                {   
+                    
+                    //Debug.Log(distanceToNextLineDown);
+                    incrementPoints(distanceToNextLineDown);
+                    distanceToNextLineDown = reset();
 
+                }
             }
-
-        }
-        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
-        if (isHitDetected(ref hitUp))
-        {
-            distanceToNextLineUp = hitUp.distance;
-
-            if (isNextUpLineNear())
-            {
-                incrementPoints(distanceToNextLineUp);
-                distanceToNextLineUp = reset();
-
-            }
-
         }
 
+        RaycastHit2D[] hitUp = Physics2D.RaycastAll(transform.position, Vector2.up);
+        foreach (var h in hitUp)
+        {
+            // Debug.Log("Fuera");
+            //Debug.Log(h.collider);
+            if (h.collider.CompareTag("Player")) { continue; }
+            if (h.collider.CompareTag("Limit")) { continue; }
+            //Debug.Log("En medio");
+            if (h.collider is EdgeCollider2D)
+            {
+                distanceToNextLineUp = h.distance;
+                //Debug.Log("Dentro");
+                if (isNextUpLineNear())
+                {
+
+                    //Debug.Log(distanceToNextLineUp);
+                    incrementPoints(distanceToNextLineUp);
+                    distanceToNextLineUp = reset();
+
+                }
+            }
+        }
 
 
+       
     }
 
     public static float getCurrentPoints()
